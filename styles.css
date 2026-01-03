@@ -1,8 +1,243 @@
-/*
+h2.comments-title {
+        text-align: center;
+}
 
-This CSS file will be included with your plugin, and
-available in the app when your plugin is enabled.
+.comment-item-container {
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        border: solid rgba(255, 255, 255, 0.2);
+        border-width: 1px;
+        display: flex;
+        flex-direction: column;
+}
 
-If your plugin does not need CSS, delete this file.
+.comment-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        border-radius: 10px;
+        transition: background-color 200ms ease-in-out;
+        padding-left: 10px;
+        padding-right: 10px;
+}
 
-*/
+.comment-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+        align-items: center;
+}
+
+.comment-info {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        align-items: flex-start;
+}
+
+.comment-minimize {
+        text-align: center;
+        border: solid rgba(255, 255, 255, 0.2);
+        border-width: 1px;
+
+        /* padding: 5px; */
+}
+
+.comment-line {
+        font-size: 0.8rem;
+}
+
+.comment-item-date {
+        font-size: 0.8rem;
+}
+
+.comment-item-text {
+        font-size: 1rem;
+        overflow-wrap: break-word;
+        inline-size: 100%;
+}
+
+.comment-children {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        gap: 10px;
+}
+
+.comment-child-container {
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+        /* padding-left: 10px; */
+        /* padding-top: 10px; */
+        gap: 3px;
+}
+
+.comment-child {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        transition: background-color 200ms ease-in-out;
+        border-radius: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+}
+
+.comment-child-separator {
+        border-top: solid rgba(255, 255, 255, 0.2);
+        border-width: 1px;
+        margin-bottom: 5px;
+}
+
+.comment-child-date {
+        font-size: 0.8em;
+}
+
+.expand-block-button {
+        padding: var(--size-2-2) var(--size-2-3);
+        position: absolute;
+        top: calc(var(--size-2-2) * 2);
+        inset-inline-end: var(--size-2-2);
+        display: flex;
+        opacity: 0;
+        color: var(--text-muted);
+        border-radius: var(--radius-s);
+        cursor: var(--cursor);
+}
+
+.theme-dark .cm-callout.comment-block {
+        --callout-color: 255, 255, 255;
+}
+.theme-light .cm-callout.comment-block {
+        --callout-color: 0, 0, 0;
+}
+
+.cm-embed-block.cm-callout.comment-block[contenteditable=false] {
+        width: fit-content;
+        max-width: 66%;
+        contain: unset !important;
+
+        &::after {
+                content: "";
+                z-index: 2;
+                position: absolute;
+                display: block;
+                top: calc(100% - 3px);
+                width: 0;
+                height: 0;
+                /* padding: 0px 4px; */
+                /* background-color: rgba(var(--callout-color), 0.1); */
+                /* border-radius: 15px; */
+        }
+
+        &.right {
+                margin-left: auto !important;
+
+                &::after {
+                        right: 3px;
+                        border-bottom: calc(var(--font-text-size) * 1.25) solid transparent;
+                        border-right: calc(var(--font-text-size) * 4) solid rgba(var(--callout-color), 0.1);
+                }
+
+                .callout[data-callout="comment++"] {
+                        border-radius: 15px 15px 0px 15px;
+                }
+        }
+
+        &.left {
+                margin-right: auto !important;
+
+                &::after {
+                        left: 3px;
+                        border-right: calc(var(--font-text-size) * 4) solid transparent;
+                        border-top: calc(var(--font-text-size) * 1.25) solid rgba(var(--callout-color), 0.1);
+                }
+
+                .callout[data-callout="comment++"] {
+                        border-radius: 15px 15px 15px 0px;
+                }
+        }
+
+        &:hover {
+                overflow: unset !important;
+        }
+
+        > div > .callout[data-callout="comment++"] > .callout-title {
+                cursor: pointer;
+                padding: 5px 10px;
+
+                &:hover {
+                        background-color: rgba(var(--callout-color), 0.1);
+                        border-radius: 10px;
+                }
+        }
+}
+
+.callout[data-callout="comment++"] {
+        --callout-icon: lucide-message-square;
+        padding: 10px 20px;
+        overflow-wrap: break-word;
+        
+        .callout-title {
+                cursor: var(--cursor);
+                align-items: center;
+                gap: 10px;
+
+                .callout-title-inner {
+                        user-select: none;
+                }
+        }
+}
+
+.theme-dark .callout[data-callout="comment++"] {
+        --callout-color: 255, 255, 255;
+        border: 3px solid rgba(0, 0, 0, 0.5);
+}
+
+.theme-light .callout[data-callout="comment++"] {
+        --callout-color: 0, 0, 0;
+        border: 3px solid rgba(0, 0, 0, 0.1);
+}
+
+.comment-item:hover,
+.comment-child:hover {
+        cursor: pointer;
+}
+
+.theme-dark .comment-item:hover,
+.theme-dark .comment-child:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+}
+
+.theme-light .comment-item:hover,
+.theme-light .comment-child:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+}
+
+@media print {
+        /* Your elements to hide */
+        .callout[data-callout="comment++"] {
+                display: none !important;
+        }
+}
+
+.comment-hidden {
+        display: none !important;
+}
+
+.comment-bigger-input {
+        .setting-item-info {
+                display: none !important;
+        }
+
+        .setting-item-control textarea {
+                width: 100%;
+                height: 200px;
+                resize: vertical;
+        }
+}

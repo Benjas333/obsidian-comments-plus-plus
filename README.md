@@ -1,32 +1,68 @@
-# Obsidian Sample Plugin
+# Comments++
 
-This is a sample plugin for Obsidian (https://obsidian.md).
+This plugin is a successor to [Comments], that adds comment functionality inspired on Google Docs.
 
-This project uses TypeScript to provide type checking and documentation.
-The repo depends on the latest plugin API (obsidian.d.ts) in TypeScript Definition format, which contains TSDoc comments describing what it does.
+## How it works
+A new callout is defined
+```md
+> [!COMMENT333] AUTHOR | DATE | UNIQUE_ID
+> COMMENT
+```
 
-This sample plugin demonstrates some of the basic functionality the plugin API can do.
+If you click the ribbon to open the plugin, the Comments View will open and show all comments within the file. This will show the name, date, and content of the comment (specified like in the callout above).
+
+## Legacy Features
+- Command to quickly add a comment (`Ctrl + P` -> `Comments++: Add new comment`).
+![Command](./assets/command.gif)
+- Quickly add sub-comments with right click in the Comments View.
+![Adding a sub-comment from the View](./assets/subCommentView.gif)
+- Quickly remove comments with right click in the Comments View.
+![Removing comments from the View](./assets/removeCommentsView.gif)
+- Quickly navigate to the place of the comment with left click in the Comments View.
+![Navigate to the comment reference](./assets/navigation.gif)
+- Comments are hidden in reading mode and when exporting it to other documents (e.g. PDF).
+![Reading mode](./assets/readingMode.gif)
+
+## New Features
+- Improved css and datetime format.
+![Improved CSS](./assets/improvedCss.png)
+- Added modals to request the content of new comments.
+- Command can add sub-comments too.
+![Command adding sub-comments](./assets/commandSubComments.gif)
+- Button to quickly add a comment in the editor context menu.
+![Editor Context Menu Button](./assets/editorContextMenu.gif)
+- Quickly add sub-comments with right click in the Editor.
+![Adding a sub-comment from the editor](./assets/subCommentEditor.gif)
+- Quickly remove comments with right click in the Editor.
+![Removing comments from the editor](./assets/removeCommentsEditor.gif)
+- Status bar with comments count per file and right click to open the Comments View.
+![Status Bar](./assets/statusBar.gif)
+- Settings:
+  - Default name:
+  - [Relay] integration:
+    - Use [Relay] login name.
+  - Expanded and collapsed mode for view.
+  ![Expanded Comments in View](./assets/expandedView.png)
+  - Expanded and collapsed mode for editor.
+  ![Expanded Comments in Editor](./assets/expandedEditor.png)
+  - Comments alignment in the editor.
+  ![Comments aligned to the left](./assets/alignedLeft.png)
+
+## TODO
+- Add @person feature and highlighting.
+- Add comment colors for every person (Relay integration).
+- Improve code in general.
+- Add configurable datetime format in settings.
+- Add indexing for comments in all the vault instead of per file (in the View and maybe in the status bar).
+
+<!-- This sample plugin demonstrates some of the basic functionality the plugin API can do.
 - Adds a ribbon icon, which shows a Notice when clicked.
 - Adds a command "Open modal (simple)" which opens a Modal.
 - Adds a plugin setting tab to the settings page.
 - Registers a global click event and output 'click' to the console.
-- Registers a global interval which logs 'setInterval' to the console.
+- Registers a global interval which logs 'setInterval' to the console. -->
 
-## First time developing plugins?
-
-Quick starting guide for new plugin devs:
-
-- Check if [someone already developed a plugin for what you want](https://obsidian.md/plugins)! There might be an existing plugin similar enough that you can partner up with.
-- Make a copy of this repo as a template with the "Use this template" button (login to GitHub if you don't see it).
-- Clone your repo to a local development folder. For convenience, you can place this folder in your `.obsidian/plugins/your-plugin-name` folder.
-- Install NodeJS, then run `npm i` in the command line under your repo folder.
-- Run `npm run dev` to compile your plugin from `main.ts` to `main.js`.
-- Make changes to `main.ts` (or create new `.ts` files). Those changes should be automatically compiled into `main.js`.
-- Reload Obsidian to load the new version of your plugin.
-- Enable plugin in settings window.
-- For updates to the Obsidian API run `npm update` in the command line under your repo folder.
-
-## Releasing new releases
+<!-- ## Releasing new releases
 
 - Update your `manifest.json` with your new version number, such as `1.0.1`, and the minimum Obsidian version required for your latest release.
 - Update your `versions.json` file with `"new-plugin-version": "minimum-obsidian-version"` so older versions of Obsidian can download an older version of your plugin that's compatible.
@@ -35,56 +71,14 @@ Quick starting guide for new plugin devs:
 - Publish the release.
 
 > You can simplify the version bump process by running `npm version patch`, `npm version minor` or `npm version major` after updating `minAppVersion` manually in `manifest.json`.
-> The command will bump version in `manifest.json` and `package.json`, and add the entry for the new version to `versions.json`
+> The command will bump version in `manifest.json` and `package.json`, and add the entry for the new version to `versions.json` -->
 
-## Adding your plugin to the community plugin list
+<!-- ## Adding your plugin to the community plugin list
 
 - Check the [plugin guidelines](https://docs.obsidian.md/Plugins/Releasing/Plugin+guidelines).
 - Publish an initial version.
 - Make sure you have a `README.md` file in the root of your repo.
-- Make a pull request at https://github.com/obsidianmd/obsidian-releases to add your plugin.
+- Make a pull request at https://github.com/obsidianmd/obsidian-releases to add your plugin. -->
 
-## How to use
-
-- Clone this repo.
-- Make sure your NodeJS is at least v16 (`node --version`).
-- `npm i` or `yarn` to install dependencies.
-- `npm run dev` to start compilation in watch mode.
-
-## Manually installing the plugin
-
-- Copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/your-plugin-id/`.
-
-## Improve code quality with eslint
-- [ESLint](https://eslint.org/) is a tool that analyzes your code to quickly find problems. You can run ESLint against your plugin to find common bugs and ways to improve your code. 
-- This project already has eslint preconfigured, you can invoke a check by running`npm run lint`
-- Together with a custom eslint [plugin](https://github.com/obsidianmd/eslint-plugin) for Obsidan specific code guidelines.
-- A GitHub action is preconfigured to automatically lint every commit on all branches.
-
-## Funding URL
-
-You can include funding URLs where people who use your plugin can financially support it.
-
-The simple way is to set the `fundingUrl` field to your link in your `manifest.json` file:
-
-```json
-{
-    "fundingUrl": "https://buymeacoffee.com"
-}
-```
-
-If you have multiple URLs, you can also do:
-
-```json
-{
-    "fundingUrl": {
-        "Buy Me a Coffee": "https://buymeacoffee.com",
-        "GitHub Sponsor": "https://github.com/sponsors",
-        "Patreon": "https://www.patreon.com/"
-    }
-}
-```
-
-## API Documentation
-
-See https://docs.obsidian.md
+[Comments]: https://github.com/JasperSurmont/obsidian-comments
+[Relay]: https://github.com/No-Instructions/Relay
