@@ -181,7 +181,7 @@ export default class CommentsPlusPlus extends Plugin {
                                 childrenHiddenEditor: !this.settings.expandCommentsInEditor,
                         };
                         if (!comment.id) {
-                                await this.regenerateCommentId(comment);
+                                comment.id = await this.regenerateCommentId(comment);
                         }
                         for (const c of children) {
                                 c.parent = comment;
@@ -213,6 +213,7 @@ export default class CommentsPlusPlus extends Plugin {
                         fileContent = lines.join("\n");
                         return fileContent;
                 });
+                return id;
         }
 
         async getCommentById(id: string, file: TFile) {
