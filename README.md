@@ -5,7 +5,7 @@ This plugin is a successor to [Comments], that adds comment functionality inspir
 ## How it works
 A new callout is defined
 ```md
-> [!COMMENT333] AUTHOR | DATE | UNIQUE_ID
+> [!COMMENT++] AUTHOR | DATE | UNIQUE_ID
 > COMMENT
 ```
 
@@ -25,7 +25,8 @@ If you click the ribbon to open the plugin, the Comments View will open and show
 
 ## New Features
 - Improved css and datetime format.
-![Improved CSS](./assets/improvedCss.png)
+
+  ![Improved CSS](./assets/improvedCss.png)
 - Added modals to request the content of new comments.
 - Command can add sub-comments too.
 ![Command adding sub-comments](./assets/commandSubComments.gif)
@@ -35,10 +36,10 @@ If you click the ribbon to open the plugin, the Comments View will open and show
 ![Adding a sub-comment from the editor](./assets/subCommentEditor.gif)
 - Quickly remove comments with right click in the Editor.
 ![Removing comments from the editor](./assets/removeCommentsEditor.gif)
-- Status bar with comments count per file and right click to open the Comments View.
+- Status bar with comments count per file and click to open the Comments View.
 ![Status Bar](./assets/statusBar.gif)
 - Settings:
-  - Default name:
+  - Default name.
   - [Relay] integration:
     - Use [Relay] login name.
   - Expanded and collapsed mode for view.
