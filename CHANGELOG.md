@@ -18,6 +18,6 @@ and this project adheres to [Semantic Versioning].
 [semantic versioning]: https://semver.org/spec/v2.0.0.html
 
 <!-- Versions -->
-[unreleased]: https://github.com/Benjas333/obsidian-comments-plus-plus/compare/v1.0.0...HEAD
-[1.1.0]: https://github.com/Benjas333/obsidian-comments-plus-plus/compare/v1.0.0...v1.1.0
-[1.0.0]: https://github.com/Benjas333/obsidian-comments-plus-plus/releases/tag/v1.0.0
+[unreleased]: https://github.com/Benjas333/obsidian-comments-plus-plus/compare/1.0.0...HEAD
+[1.1.0]: https://github.com/Benjas333/obsidian-comments-plus-plus/compare/1.0.0...1.1.0
+[1.0.0]: https://github.com/Benjas333/obsidian-comments-plus-plus/releases/tag/1.0.0
