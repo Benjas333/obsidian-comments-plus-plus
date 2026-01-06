@@ -53,6 +53,7 @@ If you click the ribbon to open the plugin, the Comments View will open and show
 - Add @person feature and highlighting.
 - Add comment colors for every person (Relay integration).
 - Improve code in general.
+- Clean the CSS (there're unused classes from the legacy plugin).
 - Add configurable datetime format in settings.
 - Add indexing for comments in all the vault instead of per file (in the View and maybe in the status bar).
 
