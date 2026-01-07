@@ -101,7 +101,7 @@ export default class CommentsPlusPlus extends Plugin {
                 //         if (leaf.view instanceof CommentsPPView) leaf.view.setComments(comments, file.name);
                 // });
                 for (const leaf of this.app.workspace.getLeavesOfType(VIEW_TYPE_COMMENT)) {
-                        if (leaf.view instanceof CommentsPPView) await leaf.view.setComments(comments, file.name);
+                        if (leaf.view instanceof CommentsPPView) leaf.view.setComments(comments, file.name);
                 }
                 this.statusBarItemEl.setText(`${comments.length} comments`);
         }

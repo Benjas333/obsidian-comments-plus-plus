@@ -21,8 +21,7 @@ export interface AllComments {
 }
 
 export interface GenericDict {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        [key: string]: any;
+        [key: string]: unknown;
 }
 
 interface AppPlugins {

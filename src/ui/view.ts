@@ -28,44 +28,16 @@ export class CommentsPPView extends ItemView {
                 return PLUGIN_NAME;
         }
 
-        async setComments(comments: CommentPP[], fileName: string) {
+        setComments(comments: CommentPP[], fileName: string) {
                 // console.debug(this.comments[fileName]);
                 // console.debug(comments);
-                // this.comments[fileName]?.forEach((prevComment) => {
-                //         const i = comments.findIndex(
-                //                 async (newComment) => {
-                //                         const prevId = await getCommentId(prevComment);
-                //                         const newId = await getCommentId(newComment);
-                //                         console.debug(prevId);
-                //                         console.debug(newId);
-                //                         return prevId === newId;
-                //                 }
-                //         );
-                //         console.debug(i, comments[i])
-                //         if (i >= 0) comments[i]!.childrenHidden = prevComment.childrenHidden;
-                // });
-                const prevComments = this.comments[fileName];
-                if (prevComments) {
-                        for (const prevComment of prevComments) {
-                                const prevId = prevComment.id;
-                                if (!prevId) continue;
-
-                                let found: CommentPP | undefined;
-                                for (const newComment of comments) {
-                                        const newId = newComment.id;
-                                        if (!newId) continue;
-
-                                        if (prevId !== newId) continue;
-
-                                        found = newComment;
-                                        break;
-                                }
-                                if (found) {
-                                        found.childrenHiddenView = prevComment.childrenHiddenView;
-                                        found.childrenHiddenEditor = prevComment.childrenHiddenEditor;
-                                }
+                this.comments[fileName]?.forEach((prevComment) => {
+                        const newComment = comments.find(c => prevComment.id && c.id && c.id === prevComment.id);
+                        if (newComment) {
+                                newComment.childrenHiddenView = prevComment.childrenHiddenView;
+                                newComment.childrenHiddenEditor = prevComment.childrenHiddenEditor;
                         }
-                }
+                });
 
                 this.comments[fileName] = comments;
                 this.renderComments(fileName);

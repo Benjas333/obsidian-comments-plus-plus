@@ -57,7 +57,7 @@ export class CommentsPPSettingTab extends PluginSettingTab {
                         .setName("Relay integration")
                         .setDesc(relayDescription)
                         .addToggle((toggle) =>
-                                toggle.setValue(this.plugin.settings.useRelayFeatures).onChange(async (value) => {
+                                toggle.setValue(this.plugin.settings.useRelayFeatures).onChange((value) => {
                                         this.plugin.settings.useRelayFeatures = value;
                                         nameEl.setDisabled(value);
                                 })
