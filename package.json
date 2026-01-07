@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-comments-plus-plus",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Add comments to your notes. Inspired by Google Docs comments.",
 	"main": "main.js",
 	"type": "module",

@@ -1,7 +1,7 @@
 {
 	"id": "comments-plus-plus",
 	"name": "Comments++",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"minAppVersion": "0.15.0",
 	"description": "Add comments to your notes. Inspired by Google Docs comments.",
 	"author": "Benjas333",
