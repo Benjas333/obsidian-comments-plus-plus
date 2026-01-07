@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning].
 
 - /
 
+## [1.0.1] - 2026-01-07
+
+### Fixed
+
+- Linting and minor changes
+
 ## [1.0.0] - 2026-01-06
 
 - initial release
@@ -18,6 +24,6 @@ and this project adheres to [Semantic Versioning].
 [semantic versioning]: https://semver.org/spec/v2.0.0.html
 
 <!-- Versions -->
-[unreleased]: https://github.com/Benjas333/obsidian-comments-plus-plus/compare/1.0.0...HEAD
-[1.1.0]: https://github.com/Benjas333/obsidian-comments-plus-plus/compare/1.0.0...1.1.0
+[unreleased]: https://github.com/Benjas333/obsidian-comments-plus-plus/compare/1.0.1...HEAD
+[1.0.1]: https://github.com/Benjas333/obsidian-comments-plus-plus/compare/1.0.0...1.1.1
 [1.0.0]: https://github.com/Benjas333/obsidian-comments-plus-plus/releases/tag/1.0.0
